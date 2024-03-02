@@ -174,7 +174,7 @@ def get_readable_message():
         msg += f"<b>{download.status()}...</b>\n"
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"\n<code>{progress_bar(download.progress())}</code>  {download.progress()}\n"
-            msg += f"\n╒═══════════════\n"
+            msg += f"\n╒═════════════════\n"
             msg += f"\n Progress: {download.processed_bytes()} of {download.size()}"
             msg += f"\n User: {source(download)}"
             msg += f"\n Speed: {download.speed()}"
@@ -194,7 +194,7 @@ def get_readable_message():
         else:
             msg += f"\n Size: {download.size()}"
         msg += f"\n Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n\n"
-        msg += f"╘════════════════\n\n"
+        msg += f"╘═════════════════\n"
         msg += f"\n✋🏻/stop_{download.gid()[:8]}\n\n"        
     if len(msg) == 0:
         return None, None
