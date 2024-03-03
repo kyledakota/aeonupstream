@@ -179,7 +179,7 @@ def get_readable_message():
             msg += f"\n <b>├🔰</b>User: {source(download)}"
             msg += f"\n <b>├🔰</b>Speed: {download.speed()}"
             #!/ msg += f"\n <b>├🔰</b>Engine: {download.engine}"
-            msg += f'\n Estimated: {download.eta()}'            
+            msg += f'\n <b>├🔰</b>Estimated: {download.eta()}'            
             if hasattr(download, 'seeders_num'):
                 try:
                     msg += f"\n Seeders: {download.seeders_num()} | Leechers: {download.leechers_num()}"
