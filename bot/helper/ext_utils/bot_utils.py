@@ -175,7 +175,7 @@ def get_readable_message():
         if download.status() not in [MirrorStatus.STATUS_SPLITTING, MirrorStatus.STATUS_SEEDING]:
             msg += f"\n<code>{progress_bar(download.progress())}</code>  {download.progress()}\n"
             msg += f"\n╒═════════════════\n"
-            msg += f"<blockquote>\n <b>┌🔰</b>Progress: {download.processed_bytes()} of {download.size()}"
+            msg += f"\n <b>┌🔰</b>Progress: {download.processed_bytes()} of {download.size()}"
             msg += f"\n <b>├🔰</b>User: {source(download)}"
             msg += f"\n <b>├🔰</b>Speed: {download.speed()}"
             #!/ msg += f"\n <b>├🔰</b>Engine: {download.engine}"
@@ -186,16 +186,16 @@ def get_readable_message():
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
-            msg += f"<blockquote>\n <b>├🔰</b>Size: {download.size()}"
+            msg += f"\n <b>├🔰</b>Size: {download.size()}"
             msg += f"\n <b>├🔰</b>Speed: {download.upload_speed()}"
             msg += f"\n <b>├🔰</b>Uploaded: {download.uploaded_bytes()}"
             msg += f"\n <b>├🔰</b>Ratio: {download.ratio()}"
             msg += f"\n <b>├🔰</b>Time: {download.seeding_time()}"
         else:
-            msg += f"<blockquote>\n <b>├🔰</b>Size: {download.size()}"
-        msg += f"\n <b>└🔰</b>Elapsed: {get_readable_time(time() - download.message.date.timestamp())}</blockquote>\n\n"
+            msg += f"\n <b>├🔰</b>Size: {download.size()}"
+        msg += f"\n <b>└🔰</b>Elapsed: {get_readable_time(time() - download.message.date.timestamp())}\n\n"
         msg += f"╘═════════════════\n"
-        msg += f"\n<blockquote>✋🏻「/stop_{download.gid()[:8]}」</blockquote>\n\n"        
+        msg += f"\n✋🏻「/stop_{download.gid()[:8]}」\n\n"        
     if len(msg) == 0:
         return None, None
     dl_speed = 0
